@@ -1,0 +1,18 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if (s.length()!=t.length()) return false; 
+        int[] arr1=new int[256];
+        int[] arr2=new int[256];
+        for(int i=0;i<s.length();i++){
+            int a=s.charAt(i);
+            int b=t.charAt(i);
+            if(arr1[a]!=arr2[b]){
+                return false;
+            }
+            arr1[a]=i+1;
+            arr2[b]=i+1;
+        }
+        return true;
+        
+    }
+}
